@@ -1,6 +1,6 @@
 ---
-title: plugin
+title: 插件
 date: 2020-05-28
 ---
 
-This is plugin.
+This is 插件.
