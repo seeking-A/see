@@ -23,3 +23,8 @@ git push -f git@github.com:xiaobailx/xiaobailx.github.io.git master
 #git push -f git@gitee.com:xiaobailx/xiaobailx.git master
 
 cd -
+
+git add -A
+git commit -m 'update new notes'
+git push https://gitee.com/xiaobailx/notes.git
+git push https://github.com/xiaobailx/blog-demo.git
