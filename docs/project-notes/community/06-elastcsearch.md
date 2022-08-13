@@ -1,5 +1,5 @@
 ---
-title:Elastucsearch入门
+title: Elastucsearch入门
 date: 2022-01-16
 tags:
  - 仿牛客社区
