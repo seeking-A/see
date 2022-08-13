@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: 小白知识库
-tagline: 我的知识仓库，学习笔记，也希望能让你从中受益。
+heroText: 十二平米
+tagline: 我的知识存储空间，不大不小刚刚好，有我的学习笔记和生活记录。
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',

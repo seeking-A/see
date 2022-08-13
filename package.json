@@ -1,15 +1,18 @@
 {
   "name": "blog-demo",
   "version": "1.0.0",
-  "author": "xiaobai",
+  "author": "江流",
   "scripts": {
-    "dev": "vuepress dev . --open --host \"localhost\"",
+    "dev": "vuepress dev .",
     "build": "vuepress build .",
-	"deploy": "bash deploy.sh"
+    "deploy": "bash deploy.sh"
   },
   "devDependencies": {
+    "@vuepress/theme-blog": "^2.3.3",
     "vuepress": "1.8.2",
-    "vuepress-theme-reco": "1.6.10"
+    "vuepress-plugin-auto-sidebar": "^2.4.0-alpha.5",
+    "vuepress-theme-reco": "^1.6.11",
+	"directory-tree": "^2.2.7"
   },
   "description": "my blog,share my learning"
 }
