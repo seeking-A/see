@@ -6,8 +6,7 @@ categories:
  - 数据库
 ---
 
-
-###  WHAT
+##  WHAT
 
 > Redis (Remote Dictionary Service) , 指的是远程字典服务器，是完全开源免费，由 C 语言编写的，遵守 BSD 协议的一个高性能（key/value）分布式内存数据库，基于内存运行并支持持久化的 NoSQL 数据库，是当下热门的 NoSQL 数据库之一，也被人们称为数据库结构服务器。
 >
@@ -19,7 +18,7 @@ categories:
 
 
 
-###  CAN
+##  CAN
 
 >- 内存存储和持久化，支持异步将内存中的数据写到硬盘上，同时不影响继续服务。
 >
@@ -30,11 +29,11 @@ categories:
 
 
 
-###  WHERE
+##  WHERE
 
 https://redis.io/ 、http://www.redis.cn/
 
-###  HOW
+##  HOW
 
 > - 数据类型、基本操作和配置
 > - 持久化和复制、RDB / AOF
@@ -43,7 +42,7 @@ https://redis.io/ 、http://www.redis.cn/
 
 
 
-### VMWARE + VMTools 的安装
+## VMWARE + VMTools 的安装
 
 [VMWARE + VMTools 的安装]()
 

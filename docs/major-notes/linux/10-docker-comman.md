@@ -51,7 +51,7 @@ ctrl+q+p
 
 
 
-**docker start <NAME or ID> ：** 启动容器
+**docker start <NAME or ID> ：**  启动容器
 
 ```shell
 #启动容器
@@ -60,7 +60,7 @@ docker start dev_cnetos
 
 
 
-**docker exec：**连接正在运行的容器
+**docker exec：**  连接正在运行的容器
 
 ```shell
 #连接正在运行的容器
@@ -69,7 +69,7 @@ docker exec -it dev_centos /bin/bash
 
 
 
-**docker ps：**查看正在运行的容器		**-a**  显示所有容器
+**docker ps：**  查看正在运行的容器		**-a**  显示所有容器
 
 ```shell
 #查询所有正在运行的容器
@@ -78,7 +78,7 @@ docker ps -a
 
 
 
-**docker stop <NAME or ID> ：** 启动容器
+**docker stop <NAME or ID> ：**  启动容器
 
 ```shell
 docker stop dev_centos
@@ -86,7 +86,7 @@ docker stop dev_centos
 
 
 
-**docker rmi -f <ID>：** 删除镜像前，需要先删除所有使用镜像的容器
+**docker rmi -f <ID>：**  删除镜像前，需要先删除所有使用镜像的容器
 
 ```
 docker rmi -f dev_centos
@@ -94,7 +94,7 @@ docker rmi -f dev_centos
 
 
 
-**docker rm <NAME or ID>：** 删除容器
+**docker rm <NAME or ID>：**  删除容器
 
 ```shell
 docker rm dev_centos

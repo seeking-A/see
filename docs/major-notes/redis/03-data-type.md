@@ -46,7 +46,7 @@ categories:
 
 
 
-**keys / del / exists ** 演示
+**keys / del / exists** 演示
 
 ```shell
 #连接redis客户端
