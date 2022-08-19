@@ -1,4 +1,11 @@
-# Android消息机制解析
+---
+title: Android消息机制解析
+date: 2022-08-01
+tags:
+ - Android
+categories:
+ - 学习总结
+---
 
 ###　为什么主线程中可以直接使用 Handler ?
 

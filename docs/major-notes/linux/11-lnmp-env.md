@@ -1,4 +1,11 @@
-# LNMP环境搭建
+---
+title: LNMP环境搭建
+date: 2021-11-26
+tags:
+ - Linux
+categories:
+ - Linux
+---
 
 ## Nginx
 

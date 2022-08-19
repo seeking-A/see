@@ -36,7 +36,7 @@ su jack
 
 
 
- **usermod：**修改用户属性	**-g** 改变用户的组
+ **usermod：** 修改用户属性	**-g** 改变用户的组
 
 ```shell
 #查看xiaobai用户所属的组
@@ -47,7 +47,7 @@ usermod -g bin xiaobai
 
 
 
-**userdel：**删除用户	**-f** 强制删除用户	**-r** 同时删除用户及用户家目录
+**userdel：** 删除用户	**-f** 强制删除用户	**-r** 同时删除用户及用户家目录
 
 ```shell
 userdel -rf xiaobai
@@ -66,7 +66,7 @@ groupadd user_team
 
 
 
-**groupmod：**修改用户组属性	**-n** 新组名	**-g** 新的组标识号
+**groupmod：** 修改用户组属性 **-n** 新组名	**-g** 新的组标识号
 
 ```shell
 #将用户组user_team重命名为usermod_team
@@ -75,7 +75,7 @@ groupmod -n usermod_team user_team
 
 
 
-**groupdel：**删除用户组
+**groupdel：** 删除用户组
 
 ```shell
 #删除用户组名usermod_team
