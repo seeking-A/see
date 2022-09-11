@@ -7,13 +7,13 @@ categories:
  - 学习总结
 ---
 
-###　为什么主线程中可以直接使用 Handler ?
+### 为什么主线程中可以直接使用Handler?
 
 Handler 的运行需要底层的 MessageQueue 和 Looper 支撑，MessageQueue 是以单链表为数据结构的消息列表，Looper 以无限循环的形式去查找 MessageQueue 中是否有新消息需要处理。Looper 中还有一个特殊概念 ThreadLocal，可以在不同的线程中互补干扰地存储并提供数据，通过 ThreadLocal 可以轻松获取每个线程的 Looper。线程默认没有 Looper，如果需要使用 Handler 就必须为线程创建 Looper。而主线程，也就是 ActivityThread，它在创建时会初始化 Looper，这就是在主线程中默认可以使用 Handler 的原因。
 
 
 
-### 为什么Android会提供Handler？
+### 为什么Android会提供Handler?
 
 Android 规定访问 UI 只能在主线程中进行，如果子线程中访问 UI，那么程序就会抛出异常。ViewRootImpl 对 UI 操作做了验证，该验证过程是由 checkThread 方法完成的：
 

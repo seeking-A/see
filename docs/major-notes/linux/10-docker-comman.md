@@ -36,13 +36,13 @@ docker images
 
 
 
-**docker run：** 创建一个指定容器   		**-name：** 命名启动的容器镜像命名
+**docker run：** 创建一个指定容器   		**--name：** 命名启动的容器镜像命名
 
 **-d** 指定容器在后台运行，返回容器id 	**-i** 以交互模式运行容器 通常与-t同时使用	**-t** 为容器重新分配一个伪终端
 
 ```shell
-#启动centos容器，并连接到系统中
-docker run  -name dev_centos -it centos /bin/bash
+#启动centos容器将其命名为dev_centos，并连接到系统中
+docker run --name dev_centos -it centos /bin/bash
 #退出登录的docker容器，并关闭容器
 exit
 # 退出登录的docker容器，不关闭容器

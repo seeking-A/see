@@ -7,7 +7,7 @@ categories:
 ---
 
 
-## VUE 基础
+## Vue 基础
 
 ### Vue简介
 
@@ -503,3 +503,6 @@ axios.post(地址,{key:value,key2:value2}).then(function(response){},function(er
 
 
 
+## 私藏干货
+
+[一篇文章，Vue快速入门](https://blog.csdn.net/qq_45408390/article/details/118151297)

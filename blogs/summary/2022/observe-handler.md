@@ -7,26 +7,24 @@ categories:
  - 学习总结
 ---
 
-## 观察者模式
+## 观察者模式简介
 
 观察者模式用于建立对象之间一对多的依赖关系，当一个对象状态发生改变，其他对象得到通知并做出响应。在观察者模式中，我们将状态发生改变的对象称为观察目标，将被通知的对象称为观察者。
 
-观察者模式中包括四大核心要素：观察目标、观察者、具体目标、具体观察者
+![image-20220911210912102](http://image.xiaobailx.top/images/202209112109175.png)
 
-观察目标也称主题，可以是接口、抽象类或具体类，定义和实现了观察者集合和对观察者添加、移除方法，声明了抽象通知方法。
+观察者模式中包括四大核心要素：观察目标、观察者、具体目标、具体观察者。
 
-观察者也称抽象观察者，可以为接口或抽象类，声明了状态更新方法。
-
-具体目标是观察目标的子类，定义了目标包含状态，实现了观察目标通知方法的抽象业务逻辑。
-
-具体观察者是观察者的实现类，包含了具体目标的引用，实现了观察者定义的状态更新方法。
+- 观察目标：也称主题，可以是接口、抽象类或具体类，定义和实现了观察者集合和对观察者添加、移除方法，声明了抽象通知方法。
+- 观察者：也称抽象观察者，可以为接口或抽象类，声明了状态更新方法。
+- 具体目标：观察目标的子类，定义了目标包含状态，实现了观察目标通知方法的抽象业务逻辑。
+- 具体观察者：观察者的实现类，包含了具体目标的引用，实现了观察者定义的状态更新方法。
 
 以下这段代码是对观察者模式结构的简要说明：
 
+- 观察目标——Subject
+
 ```java
-/**
- * 观察目标
- * */
 public abstract class Subject {
 
     protected List<Observer> observerList;
@@ -47,18 +45,20 @@ public abstract class Subject {
 
     public abstract void notifyObservers();
 }
+```
 
-/**
- * 观察者
- * */
+- 观察者——Observer
+
+```java
 public interface Observer {
     void update();
 }
+```
 
 
-/**
- * 具体目标
- * */
+- 具体目标——ConcreteSubject
+
+```java
 public class ConcreteSubject extends Subject{
     private String subjectState;
 
@@ -77,20 +77,23 @@ public class ConcreteSubject extends Subject{
         }
     }
 }
+```
 
-/**
- * 具体观察者
- * */
+- 具体观察者——ConcreteObserver
+
+
+```java
 public class ConcreteObserver implements Observer{
     @Override
     public void update() {
         System.out.println(this.toString()+"状态更新了!");
     }
 }
+```
 
-/**
- * 代码测试
- * */
+- 代码测试——TestObserver
+
+```java
 public class TestObserver {
     public static void main(String[] args) {
         Subject subject = new ConcreteSubject();
@@ -100,14 +103,15 @@ public class TestObserver {
         subject.notifyObservers();
     }
 }
-
 ```
 
 
 
-## 观察者模式应用
+## 模式应用实例
 
-联机对战游戏中，多个玩家同时加入一个战队。当战队中的某一队员收到敌人攻击时将通知其他队友并做出响应。
+需求：联机对战游戏中，多个玩家同时加入一个战队。当战队中的某一队员收到敌人攻击时将通知其他队友并做出响应。
+
+- 观察目标——GameCenter
 
 ```java
 /**
@@ -157,7 +161,11 @@ public class GameCenter {
         this.centerName = centerName;
     }
 }
+```
 
+- 观察者——GamePlayer
+
+```java
 /**
  * 游戏玩家
  * */
@@ -187,6 +195,11 @@ public class GamePlayer {
     }
 }
 
+```
+
+- 客户端——TestObserverSub
+
+```java
 public class TestObserverSub {
     public static void main(String[] args) {
         GameCenter center = new GameCenter("西游战队");
@@ -209,13 +222,15 @@ public class TestObserverSub {
 
 
 
-### Java 事件处理
+## Java 事件处理
 
 Java 的事件处理模型采用了基于观察者模式的委派事件模型（DEM），即一个组件所引发的事件委派给事件处理对象负责。
 
-在 DEM 模型中，目标角色负责发布事件，而观察者可以向目标订阅其所感兴趣的事件。我们将事件的发布者称为事件源，订阅者称为事件监听器，过程中通过事件对象来传递事件相关信息。事件源、事件监听器、事件对象构成了 Java 事件处理模型的三要素。源充当观察目标，事件监听器充当观察者，事件在目标和观察者之间传递数据。
+在 DEM 模型中，目标角色负责发布事件，而观察者可以向目标订阅其所感兴趣的事件。我们将事件的发布者称为事件源，订阅者称为事件监听器，过程中通过事件对象来传递事件相关信息。事件源、事件监听器、事件对象构成了 Java 事件处理模型的三要素。事件源充当观察目标，事件监听器充当观察者，事件在目标和观察者之间传递数据。
 
 以下代码是 DEM 的简化模型：
+
+- 事件对象——Event
 
 ```java
 /**
@@ -241,6 +256,11 @@ public class Event {
     }
 
 }
+```
+
+- 观察者事件监听器——EventListener
+
+```java
 
 /**
  * 自定义事件监听器
@@ -250,7 +270,11 @@ public interface EventListener {
     void onEvent(Event event);
 }
 
+```
 
+- 观察目标事件源——EventSource
+
+```java
 /**
  * 自定义事件源
  * */
@@ -302,6 +326,11 @@ public class EventSource {
         this.event = event;
     }
 }
+```
+
+- 客户端——TestDemo
+
+```java
 
 public class TestDemo {
 
@@ -321,7 +350,6 @@ public class TestDemo {
     }
 
 }
-
 ```
 
 ![image-20220712152934167](G:\工作笔记\markdown\image-20220712152934167.png)
