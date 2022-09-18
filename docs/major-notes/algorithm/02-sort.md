@@ -20,14 +20,22 @@ categories:
 
 ## 排序算法
 
+| 算法名称 | 平均时间  | 最差时间    | 稳定性 | 额外空间 | 额外说明                            |
+| -------- | --------- | ----------- | ------ | -------- | ----------------------------------- |
+| 直接插入 | O(n^2)    | O(n^2)      | 稳定   | O(1)     | 大部分元素有序时效率好              |
+| 希尔排序 | O(nlogn)  | O(n^s)1<s<2 | 不稳定 | O(1)     | s是所选分组                         |
+| 简单选择 | O(n^2)    | O(n^2)      | 不稳定 | O(1)     | n较小时效率好                       |
+| 堆排序   | O(nlogn)  | O(nlogn)    | 不稳定 | O(1)     | n较大时效率好                       |
+| 冒泡排序 | O(n^2)    | O(n^2)      | 稳定   | O(1)     | n较小时效率好                       |
+| 快速排序 | O(nlogn)  | O(n^2)      | 不稳定 | O(nlogn) | n较大时效率好                       |
+| 归并排序 | O(nlogn)  | O(nlogn)    | 稳定   | O(1)     | n较大时效率好                       |
+| 基数排序 | O(log^RB) | O(log^RB)   | 稳定   | O(n)     | B为真数（0~9）<br>R是基数（个十百） |
+
+
+
 ### 1. 插入排序
 
 #### 直接插入
-
-#### 希尔排序
-
-| 平均时间 O(nlogn) | 最差时间O(n^s)1<s<2 | 不稳定 | 额外空间O(1) | s是所选分组 |
-| ----------------- | ------------------- | ------ | ------------ | ----------- |
 
 基本思想：把数组分为两个数组，前面的有序数组，后边的无序数组，将后边的无序数组的值插入到前边有序数组中。
 
@@ -37,20 +45,20 @@ public static void insertSort(int[] arr){
      * 把数组分为两个数组，前面的有序数组，后边的无序数组，将后边的无序数组的值插入到前边有序数组中
      */
     for (int i = 1; i < arr.length; i++) {
-           int num=arr[i];
-           int index=i-1;
-           while (index>=0&&num<arr[index]){
-               arr[index+1]=arr[index];
+           int num=arr[i], index= i;
+           while (index>=0&&num<arr[index-1]){
+               arr[index]=arr[index-1];
                index--;
            }
-           if (index+1!=i){
-               //因为for循环最后一步index--会比预期index小1
-               arr[index+1]=num;
-           }
+           arr[index] = num;
     }
     System.out.println("insert排序后："+Arrays.toString(arr));
 }
 ```
+
+
+
+#### 希尔排序
 
 
 
@@ -67,9 +75,6 @@ public static void insertSort(int[] arr){
 ### 3. 交换排序
 
 #### 冒泡排序
-
-| 平均时间 O(n^2) | 最差时间O(n^2) | 稳定 | 额外空间O(1) | n小时较好 |
-| --------------- | -------------- | ---- | ------------ | --------- |
 
 基本思想：指定两个相邻指针在数组中移动，相邻指针所指两个元素进行比较交换。
 
@@ -105,9 +110,6 @@ public static void bubbleSort(int[] arr){
 
 #### 快速排序
 
-| 平均时间 O(nlogn) | 最差时间O(n^2) | 不稳定 | 额外空间O(nlogn) | n大时较好 |
-| ----------------- | -------------- | ------ | ---------------- | --------- |
-
 基本思想：任意取数组中一个值作为基数，指定两个指针，分别指向数组最左和最右元素，然后两指针向中间移动，使其所指元素与基数比较，然后进行插入排序，排序后折半缩小数组重复之前的排序操作。
 
 ```java
@@ -116,29 +118,28 @@ public static void bubbleSort(int[] arr){
  *     任意取数组中一个值作为基数，指定两个指针，分别指向数组最左和最右元素，
  *     然后两指针向中间移动，使其所指元素与基数比较，然后进行插入排序，排序后折半缩小数组重复之前的排序操作
  */
-public static void quickSort(int[] arr,int left,int right){
-    if (left<right) {
-        int l = left, r = right + 1;
-        int povit = arr[left];
-
-        while (true){
-            while (l<right&&arr[++l]<=povit)
-                ;
-            while (r>left&&arr[--r]>=povit)
-                ;
-            if (l<r){
-                swap(arr,r,l);
-            }
-            break;
-        }
-        swap(arr,left,r);
-        System.out.println("快速排序后："+Arrays.toString(arr));
-
-        quickSort(arr,left,r-1);
-        quickSort(arr,l+1,right);
+public void quickSort(int[] arr, int start, int end) {
+    if (start<end){
+        int pov = partition(arr,start,end);
+        quickSort(arr, start,pov-1);
+        quickSort(arr,pov+1,end);
     }
 }
 
+private int partition(int[] arr, int start, int end) {
+    int pov = arr[start];
+    while (start<end){
+        while (start<end&& arr[end]>=pov){
+            end--;
+        }
+        swap(arr,start,end);
+        while (start<end&& arr[start]<=pov){
+            start++;
+        }
+        swap(arr,start,end);
+    }
+    return start;
+}
 
 public static void swap(int[] arr,int left,int right){
     int temp = arr[right];
@@ -151,12 +152,36 @@ public static void swap(int[] arr,int left,int right){
 
 ### 4. 归并排序
 
+```java
+public void mergeSort(int[] arr, int left, int right) {
+    if (left < right) {
+        int mid = (left + right) >> 1;
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+        merge(arr, left, mid, right);
+    }
+}
+
+private void merge(int[] arr, int left, int mid, int right) {
+    int[] tmp = new int[arr.length];
+    int i = left, l = left, r = mid + 1;
+    while (l <= mid && r <= right) {
+        tmp[i++] = arr[l] <= arr[r] ? arr[l++] : arr[r++];
+    }
+    while (r <= right)
+        tmp[i++] = arr[r++];
+    while (l <= mid)
+        tmp[i++] = arr[l++];
+    while (left <= right)
+        arr[left] = tmp[left++];
+}
+```
+
+
+
 
 
 ### 5. 基数排序
-
-| 平均时间 O(n^2) | 最差时间O(n^2) | 稳定 | 额外空间O(1) | n小时较好 |
-| --------------- | -------------- | ---- | ------------ | --------- |
 
 基本思想： 将所有待比较数值统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。
 
@@ -215,6 +240,6 @@ int mid = L + (R-L)/2;
 ### 判断一个数是否为偶数
 
 ```java
-num & 1 != 0
+num & 1 == 0;//true为偶数，false为奇数
 ```
 
