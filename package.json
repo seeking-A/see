@@ -9,10 +9,10 @@
   },
   "devDependencies": {
     "@vuepress/theme-blog": "^2.3.3",
+    "directory-tree": "^2.3.1",
     "vuepress": "1.8.2",
     "vuepress-plugin-auto-sidebar": "^2.4.0-alpha.5",
-    "vuepress-theme-reco": "^1.6.11",
-	"directory-tree": "^2.2.7"
+    "vuepress-theme-reco": "^1.6.11"
   },
-  "description": "my blog,share my learning"
+  "description": "For every small step, there is every big step!"
 }

@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: 十二平米
-tagline: 我的知识存储空间，不大不小刚刚好，有我的学习笔记和生活记录。
+heroText: 编程旅记
+tagline: 因为每一小步，所以每一大步！
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
