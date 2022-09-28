@@ -25,5 +25,5 @@ cd -
 
 git add -A
 git commit -m 'update new notes'
-git push -f https://gitee.com/xiaobailx/notes.git
+git push -f https://gitee.com/xiaobailx/blog-demo.git
 git push -f https://github.com/xiaobailx/blog-demo.git
