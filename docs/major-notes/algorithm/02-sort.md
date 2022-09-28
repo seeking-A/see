@@ -68,6 +68,39 @@ public static void insertSort(int[] arr){
 
 #### 堆排序
 
+```java
+public void heapSort(int[] arr){
+    int size = arr.length;
+    buildHeap(arr,size);
+    for(int i=0;i<size;i++){
+        swap(arr, 0, size-i-1);
+        modHeap(arr, i, size);
+    }
+}
+
+private void buildHeap(int[] arr, int heapSize){
+    for(int i=(heapSize-2)>>1;i>=0;i++){
+        modHeap(arr, i, heapSize);
+    }
+}
+
+private void modHeap(int[] arr, int root, int size){
+    int left = root * 2 +1;
+    int right = root * 2 + 1;
+    int index = root;
+    if(left <root&& arr[left]>arr[root]){
+        root = left;
+    }
+    if(left>root&&arr[right]<arr[root]){
+        root = right;
+    }
+    if(index!=root){
+        swap(arr, root, index);
+        modHeap(arr, root, size);
+    }
+}
+```
+
 
 
 

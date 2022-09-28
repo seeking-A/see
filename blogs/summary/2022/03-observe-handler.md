@@ -1,6 +1,6 @@
 ---
 title: 观察者模式与事件处理
-date: 2022-08-01
+date: 2022-09-11
 tags:
  - 设计模式
 categories:

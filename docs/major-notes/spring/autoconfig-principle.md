@@ -1,6 +1,6 @@
 ---
 title: 自动配置原理
-date: 2018-12-15
+date: 2021-01-19
 tags:
  - SpringBoot
 categories:

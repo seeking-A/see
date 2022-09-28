@@ -1,6 +1,6 @@
 ---
 title: MySQL事务
-date: 2018-12-15
+date: 2021-12-15
 tags:
  - MySQL
 categories:
