@@ -12,9 +12,6 @@
 
 - **非对称加密：** 非对称加密即加密和解密的密钥不同，其中涉及到一对密钥：公钥和私钥。当一消息通过公钥加密。解密只能通过其对应的私钥完成；当消息通过私钥加密，只能通过其对应的公钥解密。
 
-
-![]()
-
 ![](http://image.xiaobailx.top/images/202208162221419.png)
 
 - **数字签名：** 通过公钥对明文进行加密得到的一段数字串，用于保证信息来源的真实性和消息的完整性。
@@ -303,7 +300,7 @@ apksigner 除了支持使用 keystore 文件进行签名外，还支持直接指
 
 V3 签名方案时 Android 9.0 时引入的签名解决方案，支持了密钥轮替。根据官网介绍，V3 签名方案与 V2 基本相似，只是在 APK 签名分块中添加了有关受支持的 SDK 版本和 proof-of-rotation 结构的信息，应用可以通过将 APK 文件过去的签名证书链接到现在签署应用时使用的证书，从而使用新签名证书来签署应用。我们与 V2 对比来看一下 APK 签名块 V3 的结构， 橙色部分为新增的结构信息。 
 
-![](G:\工作笔记\markdown\2208191606.png)
+![](http://image.xiaobailx.top/2208191606.png)
 
 
 
@@ -315,7 +312,7 @@ V3 签名方案时 Android 9.0 时引入的签名解决方案，支持了密钥�
 
 V3 的校验过程也与 V2 大致相同，只是 V3 在 V2 校验的基础上添加了对 SDK 版本校验和 proof-of-rotation 结构的校验，其校验过程如下：
 
-![](G:\工作笔记\markdown\2208191605.png)
+![2208191605](http://image.xiaobailx.top/2208191605.png)
 
 >  开发者文档说明：[APK 签名方案 v3](https://source.android.google.cn/security/apksigning/v3)
 
@@ -333,9 +330,7 @@ V3 的校验过程也与 V2 大致相同，只是 V3 在 V2 校验的基础上�
 >
 > 此方案不改变前代签名方案而是创建一种新的签名：基于 APK 所有字节数据计算出 Merkle 哈希树，并将Merkle 树的根哈希、盐值作为签名数据进行包完整性验证。新的签名数据保存在 .idsig 文件中并且在进行增量安装前必须为APK创建对应的 v4 签名文件。
 
-Android 11 的
-
-签名方案 V4 是 Android 11 的签名方案，Android 11 在内核中实现了增量文件系统用于对增量安装的支持，关于增量安装可以参考这篇文章：[Android AAB增量安装](https://blog.csdn.net/weixin_42600398/article/details/123034521)。实现了 支持了流式传输。V4 签名基于根据 APK 的所有字节计算得出的 Merkle 哈希树。将Merkle 树的根哈希、盐值作为签名数据进行包完整性验证。其签名信息存储在单独的 `<apk name>.apk.idsig` 文件中并且在进行增量安装前必须为APK创建对应的 v4 签名文件。V4 签名需要 [V2](https://source.android.google.cn/security/apksigning/v2) 或 [V3](https://source.android.google.cn/security/apksigning/v3) 签名作为补充。
+Android 11 的签名方案 V4 是 Android 11 的签名方案，Android 11 在内核中实现了增量文件系统用于对增量安装的支持，关于增量安装可以参考这篇文章：[Android AAB增量安装](https://blog.csdn.net/weixin_42600398/article/details/123034521)。实现了 支持了流式传输。V4 签名基于根据 APK 的所有字节计算得出的 Merkle 哈希树。将Merkle 树的根哈希、盐值作为签名数据进行包完整性验证。其签名信息存储在单独的 `<apk name>.apk.idsig` 文件中并且在进行增量安装前必须为APK创建对应的 v4 签名文件。V4 签名需要 [V2](https://source.android.google.cn/security/apksigning/v2) 或 [V3](https://source.android.google.cn/security/apksigning/v3) 签名作为补充。
 
 关于 V4 签名的内容，可以直接参考开发者文档说明：[APK 签名方案 v4](https://source.android.google.cn/security/apksigning/v4)，在此不再赘述。
 

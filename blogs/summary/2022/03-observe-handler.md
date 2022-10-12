@@ -218,7 +218,7 @@ public class TestObserverSub {
 
 输出：
 
-![image-20220712150957109](G:\工作笔记\markdown\image-20220712150957109.png)
+![image-20220712150957109](http://image.xiaobailx.top/image-20220712150957109.png)
 
 
 
@@ -352,7 +352,7 @@ public class TestDemo {
 }
 ```
 
-![image-20220712152934167](G:\工作笔记\markdown\image-20220712152934167.png)
+![image-20220712152934167](http://image.xiaobailx.top/image-20220712152934167.png)
 
 
 
