@@ -10,9 +10,16 @@
   "devDependencies": {
     "@vuepress/theme-blog": "^2.3.3",
     "directory-tree": "^2.3.1",
+    "element-ui": "^2.15.10",
     "vuepress": "1.8.2",
     "vuepress-plugin-auto-sidebar": "^2.4.0-alpha.5",
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-nuggets-style-copy": "^1.0.3",
     "vuepress-theme-reco": "^1.6.11"
   },
-  "description": "For every small step, there is every big step!"
+  "description": "For every small step, there is every big step!",
+  "dependencies": {
+    "element-ui": "^2.15.10",
+    "vuepress-plugin-code-copy": "^1.0.6"
+  }
 }

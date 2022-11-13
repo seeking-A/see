@@ -275,4 +275,3 @@ int mid = L + (R-L)/2;
 ```java
 num & 1 == 0;//true为偶数，false为奇数
 ```
-
